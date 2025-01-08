@@ -1,65 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tzeeter</title>
+    <title>Tzeeter - Perfil de Francisco</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Informação 1-->
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Explore</a></li>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Bookmarks</a></li>
-        <li><a href="#">Lists</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">More</a></li>
-    </ul>
+    <!-- Navegação -->
+    <nav class="navegacao">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Explorar</a></li>
+            <li><a href="#">Notificações</a></li>
+            <li><a href="#">Mensagens</a></li>
+            <li><a href="#">Favoritos</a></li>
+            <li><a href="#">Listas</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Mais</a></li>
+        </ul>
+    </nav>
 
-    <!-- Informação 2 -->
-    <img src="img/fotodousuario.jpg" alt="Foto de perfil do usuário">
+    <!-- Perfil do Usuário -->
+    <header class="perfil">
+        <img src="img/fotodousuario.jpg" alt="Foto de perfil de Francisco Edinaldo Santos">
+        <button>Editar Perfil</button>
+        <h1>Francisco Edinaldo Santos</h1>
+        <h2>@fraedisansil</h2>
+        <p class="description_profile">Aluno da Universidade Federal do Ceará - UFC<br>24 anos<br>Técnico em informática.</p>
+        <ul>
+            <li><a href="#" class="localizacao">Quixadá - CE</a></li>
+            <li><a href="#" class="data_de_ingresso">Entrou em: Março de 2020</a></li>
+        </ul>
+    </header>
 
-    <!-- Informação 3 -->
-    <h4> Francisco Edinaldo Santos</h4>
-
-    <!-- Informação 4 -->
-    <h5> @fraedisansil</h5>
-
-    <!-- Informação 5 -->
-    <button>Edit profile</button>
-
-    <!-- Informação 6 -->
-    <ul>
-        <li><a href="#">Quixadá - CE</a></li>
-        <li><a href="#">Joined March 2020</a></li>
-    </ul>
-
-    <!-- Informação 7 -->
-    <ul>
-        <li><a href="#">356 tzeets</a></li>
-        <li><a href="#">201 following</a></li>
-        <li><a href="#">450 followers</a></li>
-    </ul>
-
-    <a href="#">Tzeets</a>
-    <a href="#">Tzeets & replies</a>
-    <a href="#">Media</a>
-    <a href="#">Likes</a>
-
-    <!-- Informação 8 -->
-    <section>
-        <img src="img/fotodousuariop.jpg" alt="Foto do usuário">
-        <p>Francisco Edinaldo Santos @fraedisansil Jan 22,2020</p>
-        <p>
-            Happy birthday to me, this day will be amazing!!!
-        </p>
-        <a href="#">Replay</a>
-        <a href="#">Retzeet</a>
-        <a href="#">Like</a>
-        <a href="#">Share</a>
-        
+    <!-- Estatísticas -->
+    <section class="estatisticas">
+        <ul>
+            <li><a href="#"><span class="numero">356</span> Tzeets</a></li>
+            <li><a href="#"><span class="numero">201</span> Seguindo</a></li>
+            <li><a href="#"><span class="numero">3000</span> Seguidores</a></li>
+        </ul>
     </section>
+
+    <!-- Navegação de Publicações -->
+    <section class="publicacoes">
+        <nav>
+            <a href="#">Tzeets</a>
+            <a href="#">Respostas</a>
+            <a href="#">Mídia</a>
+            <a href="#">Curtidas</a>
+        </nav>
+    </section>
+
+    <!-- Publicação -->
+    <article class="publicacao">
+        <img src="img/fotodousuariop.jpg" alt="ícone do usuário">
+        <p><strong><span class="nome_completo">Francisco Edinaldo Santos </span></strong><span class="nome_usuario">@fraedisansil </span><span class="data_tzeet">22 de Janeiro, 2020</span></p>
+        <div class="conteudo">
+            <p>Happy birthday to me, this day will be amazing!!!</p>
+        </div>
+        <div class="acoes">
+            <a href="#" class="reply">Responder</a>
+            <a href="#" class="retzeet">Retzeet</a>
+            <a href="#" class="like">Curtir</a>
+            <a href="#" class="share">Compartilhar</a>   
+        </div>
+    </article>
 </body>
 </html>
