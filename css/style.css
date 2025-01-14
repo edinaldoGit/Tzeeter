@@ -1,0 +1,505 @@
+@charset "UTF-8";
+
+
+:root {
+    --color-A: rgb(15, 20, 25); 
+    --color-B: rgb(83, 100, 113);
+    --color-C: rgb(239, 243, 244);
+    --color-button-p-retzeet: rgba(0, 186, 124, 1);
+    --color-button-p-reply-and-share: rgba(29, 155, 240, 1);
+    --color-button-p-like: rgba(249, 24, 128, 1);
+    --color-post: rgb(50, 50, 50);
+    --color-post-hover: rgba(0, 0, 0, 0.03);
+    --color-search-icon: #2e2c2c;
+    --color-button-show-more: rgb(9, 148, 255);
+    --color-button-hover: rgb(57, 57, 57);
+    --color-background-hover: rgba(15, 25, 20, 0.1);
+}
+
+/*Configurações Globais -----------------------------------------------------------------*/
+* {
+    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/*Configuração das colunas --------------------------------------------------------------*/
+main {
+    display: grid;
+    grid-template-columns: 2fr 5fr 3fr; /* 3 colunas com tamanhos diferentes */
+    gap: 10px; /* Espaço entre as colunas */
+    background-color: white;
+    min-width: 300px;
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+}
+
+.coluna-esquerda {
+    grid-column: 1;
+    position: fixed;
+    overflow: hidden;
+}
+
+.coluna-central {
+    grid-column: 2;
+    overflow: auto;
+    border-right: 1px solid rgba(15, 25, 20, 0.1);
+    border-left: 1px solid rgba(15, 25, 20, 0.1);
+}
+
+.coluna-direita {
+    grid-column: 3;
+    position: fixed;
+    overflow: hidden;
+}
+
+.button-tzeet-icon{
+    display: none;
+}
+
+/*Media queries-------------------------------------------------------------------------*/
+@media (max-width: 1100px) {
+    main {
+        grid-template-columns: 1fr 5fr 3fr;
+        gap: 10px;
+    }
+
+    .text-navbar, .button-tzeet {
+      display: none;
+    }
+
+    .button-tzeet-icon{
+        display: block;
+    }
+}
+
+@media (max-width: 890px) {
+    main {
+        grid-template-columns: 1fr 5fr 0fr;
+        gap: 10px;
+    }
+
+    .coluna-central{
+        margin-right: 30px;
+    }
+
+    .coluna-direita {
+      display: none; 
+    }
+}
+
+/*Botões--------------------------------------------------------------------------------*/
+/*Configurando aparência padrão dos botões*/
+button { 
+    color: white;
+    background-color: var(--color-A);
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+/*Configurando posição e características específicas de cada botão*/
+
+.button-tzeet{
+    border-radius: 30px;
+    padding: 10px 10px;
+    font-size: 1rem;
+    width: 70%;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.button-edit-profile{
+    border-radius: 15px;
+    padding: 7px 10px;
+    font-size: 0.8rem;
+    width: 30%;
+}
+
+.button-follow{
+    border-radius: 30px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    width: 4.6em;
+    height: 70%;
+}
+
+.button-back {
+    background-color: transparent;
+    color: var(--color-A);
+    border-radius: 50%;
+    align-items: center;
+
+    width: 10%;
+    height: 40px;
+    margin-left: 5px;
+}
+
+.button-tzeet-icon {
+    background-color: var(--color-A);
+    color: white;
+    border-radius: 50%;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    margin-left: 40px;
+}
+
+/*Ajustando animação de transição ao passar o mouse sobre os botões*/
+.button-tzeet:hover, 
+.follow-button button:hover, 
+.button-edit-profile:hover,
+.button-follow:hover{
+    background-color: var(--color-button-hover);
+}
+
+.button-back:hover{
+    background-color: var(--color-background-hover);
+}
+
+/*Imagens----------------------------------------------------------------------------*/
+.tiziu-icon img {
+    position: relative; /* Garante que a imagem respeite a hierarquia */
+    width: 1.8em; /* Largura da imagem */
+    height: 1.8em; /* Altura da imagem */
+    object-fit: contain; /* Ajusta a imagem sem distorção */
+    z-index: 2; /* Certifica que fique acima do fundo */
+    display: block; /* Remove espaços extras ao redor da imagem */
+    padding-top: 10px;
+}
+
+#photo-profile {
+    width: 100px; /* Defina o tamanho desejado */
+    height: 100px; /* Mantenha a altura igual à largura para garantir um círculo */
+    border-radius: 50%; /* Torna a imagem redonda */
+    object-fit: cover; /* Garante que a imagem ocupe toda a área sem distorção */ 
+}
+
+.icon-user {
+    width: 50px; /* Define o tamanho da imagem */
+    height: 50px;
+    border-radius: 50%; /* Torna a imagem redonda */
+    object-fit: cover; /* Garante que a imagem ocupe toda a área sem distorção */
+}
+
+/*Nome de exibição e nome de usuário-------------------------------------------------*/
+.display-name, 
+.display-name a {
+    color: var(--color-A);
+    font-weight: bold; 
+}
+
+.handle, 
+.handle a{
+    color: var(--color-B);
+}
+
+#display-name-header{
+    font-size: 20px;   
+}
+
+#handle-header {
+    font-size: 15px; 
+}
+
+/*Barra de navegação lateral esquerda------------------------------------------------*/
+.navigation a {
+    /*Aparência*/
+    display: inline-flex;
+    font-size: 1.4em;
+    border-radius: 20px; 
+    color: var(--color-A);
+    background-color: transparent;
+    transition: transform 0.3s ease;
+
+    /* Formato e Posição*/
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding: 10px 20px; 
+}
+
+/*Efeito ao passar o mouse*/
+.navigation li a:hover {
+    background-color: var(--color-background-hover);
+    transition: transform 0.3s ease;
+}
+
+/*Área de 'VOLTAR'---------------------------------------------------------------------*/
+.back-area{
+    display: inline-flex;
+    background-color: transparent;
+    border-bottom: 1px solid var(--color-background-hover); 
+    align-items: center; 
+    width: 100%;
+    height: 40px;
+    padding:5px 0px 5px 0px;  
+}
+
+#display-name-back-area{
+    color: var(--color-A);
+    margin-left: 10px;
+}
+
+/*Área de foto e botão editar perfil-------------------------------------------------*/
+.profile-exibition {
+    display: flex;
+    align-items: center; /* Alinha verticalmente, opcional */
+    background-color: rgb(223, 221, 221);
+    padding: 20px 0px 20px 20px;
+}
+
+.button-edit-profile {
+   margin-left: 50px;
+}
+
+/*Informações do perfil--------------------------------------------------------------*/
+
+.username-profile-header, 
+#description-profile {
+    padding: 20px 0px 0px 20px;
+}
+
+.profile ul, 
+.statistics ul {
+    display: flex;
+    
+}
+
+.profile li, .statistics li{
+    padding: 10px 0px 0px 20px;
+}
+
+.profile a, .statistics a{
+    color: var(--color-B);
+}
+
+/*Efeito ao passar o mouse*/
+.statistics a:hover{
+    text-decoration: underline;
+}
+
+/*Área dos setores de publicação------------------------------------------------------*/
+.publications {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    border-bottom: 1px solid var(--color-background-hover); 
+    margin-top: 20px;
+}
+
+.publications a{
+    color: var(--color-A);
+}
+
+.item {
+    padding: 10px;
+    text-align: center;
+}
+
+/*Efeito ao passar o mouse*/
+.publications div:hover {
+    transform: scale(1.03); 
+    background-color: var(--color-background-hover); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/*Área de publicação-----------------------------------------------------------------*/
+.post {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 0px; /* Define um espaço entre as colunas */
+    width: 100%; /* A linha ocupa toda a largura da coluna */
+    font-size: 14px;
+    color: rgb(50, 50, 50); /* Cor do texto da publicação */
+}
+
+.post-header{
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.icon-user{
+    padding: 10px;
+}
+
+.data-tzeet {
+    color: var(--color-B);
+}
+
+.content {
+    padding: 5px 10px 10px 0px;
+}
+
+.user-and-content{
+    width: 100%;
+    padding: 15px 0px 10px 0px;
+}
+
+/*Efeito ao passar o mouse*/
+.post:hover{
+    background-color: var(--color-post-hover);
+}
+
+/*Ações em um post-------------------------------------------------------------------*/
+.actions{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    width: 100%;
+    border-top: 0.4px solid var(--color-background-hover);
+    border-bottom: 0.4px solid var(--color-background-hover);
+    background-color: transparent;
+}
+
+.actions a {
+    color: var(--color-B);
+    background-color: transparent;
+}
+
+.item a{
+    display: flex;
+    width: auto;
+    height: 50px;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.item {
+    padding: 0;
+}
+
+/*Efeito ao passar o mouse */
+.like:hover {
+    color: var(--color-button-p-like);
+}
+
+.reply:hover {
+    color: var(--color-button-p-reply-and-share);
+}
+
+.share:hover {
+    color: var(--color-button-p-reply-and-share);
+}
+
+.retzeet:hover {
+    color: var(--color-button-p-retzeet);
+}
+
+/*Área de recomendação de perfis e pesquisar -------------------------------------------*/
+.find-users{
+    margin-left: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    margin-top: 10px;
+    border-radius: 20px; /* Arredondado */
+    background-color: rgb(239, 243, 244);
+}
+
+.search-icon {
+    padding: 10px;
+    background-color: transparent;
+    color: #2e2c2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.search-form input {
+    flex: 1;
+    color: var(--color-A);
+    border: none; 
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    background-color: transparent;
+}
+
+.side-bar-follow {
+    display: grid;
+    background-color:var(--color-C);
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 85%;
+    height: auto;
+}
+
+.title-box-recommend h1{
+    color: var(--color-A);
+    font-size: 1.2rem;
+    padding: 10px 10px 10px 20px;
+}
+
+.icon-profile a img{
+    width: 50px; /* Define o tamanho da imagem */
+    height: 50px;
+    border-radius: 50%; /* Torna a imagem redonda */
+    object-fit: cover; /* Garante que a imagem ocupe toda a área sem distorção */
+}
+
+.profile-recommended{
+    display: grid;                        
+    grid-template-columns: 20% 45% 35%; 
+    align-items: center;
+    padding: 10px 0px 0px 20px;
+    width: 90%;
+}
+
+.profile-recommended .username-profile {
+    margin-left: 0.5em;
+}
+
+#show-more-profiles-link {
+    color:  rgb(9, 148, 255);
+    font-size: 1em;
+    padding: 20px 10px 20px 20px;
+}
+
+/*Efeito ao passar o mouse apenas sobre os ícones */
+.reply svg, 
+.share svg, 
+.like svg,
+.retzeet svg {
+    padding: 5px;
+}
+
+.reply svg:hover{
+    background-color: rgba(29, 156, 240, 0.232);
+    border-radius: 50%;
+}
+
+.share svg:hover {
+    background-color: rgba(29, 156, 240, 0.232);
+    border-radius: 50%;
+}
+
+.retzeet svg:hover {
+    background-color: rgba(0, 186, 124, 0.246);
+    border-radius: 50%;
+}
+
+.like svg:hover {
+    background-color: rgba(249, 24, 129, 0.235);
+    border-radius: 50%;
+}
+
+/*Ícones SVG-------------------------------------------------------------------------*/
+.navigation svg {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+    width: 22px; /* Define um tamanho fixo para o ícone */
+    height: 22px; /* Define um tamanho fixo para o ícone */
+    flex-shrink: 0; /* Evita que o ícone encolha */
+}
+
+.button-tzeet-icon svg {
+    margin: 0px;
+}
