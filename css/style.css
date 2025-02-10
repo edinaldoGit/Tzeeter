@@ -56,7 +56,7 @@ main {
     overflow: hidden;
 }
 
-.button-tzeet-icon{
+#button-tzeet-icon{
     display: none;
 }
 
@@ -67,11 +67,11 @@ main {
         gap: 10px;
     }
 
-    .text-navbar, .button-tzeet {
+    .text-navbar, #button-tzeet {
       display: none;
     }
 
-    .button-tzeet-icon{
+    #button-tzeet-icon{
         display: block;
     }
 }
@@ -102,7 +102,7 @@ button {
 
 /*Configurando posição e características específicas de cada botão*/
 
-.button-tzeet{
+#button-tzeet{
     border-radius: 30px;
     padding: 10px 10px;
     font-size: 1rem;
@@ -137,7 +137,7 @@ button {
     margin-left: 5px;
 }
 
-.button-tzeet-icon {
+#button-tzeet-icon {
     background-color: var(--color-A);
     color: white;
     border-radius: 50%;
@@ -149,7 +149,7 @@ button {
 }
 
 /*Ajustando animação de transição ao passar o mouse sobre os botões*/
-.button-tzeet:hover, 
+#button-tzeet:hover, 
 .follow-button button:hover, 
 .button-edit-profile:hover,
 .button-follow:hover{
@@ -465,41 +465,232 @@ button {
 }
 
 /*Efeito ao passar o mouse apenas sobre os ícones */
-.reply svg, 
-.share svg, 
-.like svg,
-.retzeet svg {
+.reply i, 
+.share i, 
+.like i,
+.retzeet i {
     padding: 5px;
 }
 
-.reply svg:hover{
+.reply i:hover{
     background-color: rgba(29, 156, 240, 0.232);
     border-radius: 50%;
 }
 
-.share svg:hover {
+.share i:hover {
     background-color: rgba(29, 156, 240, 0.232);
     border-radius: 50%;
 }
 
-.retzeet svg:hover {
+.retzeet i:hover {
     background-color: rgba(0, 186, 124, 0.246);
     border-radius: 50%;
 }
 
-.like svg:hover {
+.like i:hover {
     background-color: rgba(249, 24, 129, 0.235);
     border-radius: 50%;
 }
 
-/*Ícones SVG-------------------------------------------------------------------------*/
-.navigation svg {
+/*Ícones i-------------------------------------------------------------------------*/
+.navigation i {
     margin-right: 8px; /* Espaço entre o ícone e o texto */
     width: 22px; /* Define um tamanho fixo para o ícone */
     height: 22px; /* Define um tamanho fixo para o ícone */
     flex-shrink: 0; /* Evita que o ícone encolha */
 }
 
-.button-tzeet-icon svg {
+#button-tzeet-icon i {
     margin: 0px;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+.home-icon-and-text{
+    display: inline-flex;
+    background-color: transparent;
+    border-bottom: 1px solid var(--color-background-hover); 
+    align-items: center; 
+    width: 100%;
+    height: 40px;
+    padding:5px 0px 5px 0px; 
+}
+
+.bi-house-door-fill{
+    width: 10%;
+    height: 100%;
+    font-size: 1.5em;
+    text-align: center;
+    justify-self: center;
+    margin-top: 0.4em;
+}
+
+.home-icon-and-text h1{
+     color: var(--color-A);
+     font-size: 1.5em;
+     margin-left: 0.2em;
+     width: 90%;
+}
+
+/*Área de criar um tzeet*/
+.area-to-send-tzeet{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    border-bottom: 1px solid var(--color-background-hover);
+}
+
+#profile-pic-to-send-tzeeter {
+    width: 64px; 
+    height: 64px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+.send-tzeet{
+    padding: 2em 1em 1em 0;
+}
+
+#form-to-send-tzeet{
+    display: flex;
+    flex-direction: column;
+}
+
+#textarea-and-link{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-background-hover);
+}
+
+#tzeet-content{
+    outline: none;
+    border: none;
+    align-content: center;
+    font-size: 1.2em;
+    height: 2em;
+    margin-left: 0.6em;
+    resize: none;
+}
+
+#link-everyone-can-reply{
+    color:rgb(9, 148, 255);
+    align-content: center;
+    width: 100%;
+    height: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#link-everyone-can-reply div{
+    margin-left: 0.6em;
+    font-size: 0.9em;
+}
+
+#link-everyone-can-reply:hover{
+    background-color: rgba(29, 155, 240, 0.1);
+   
+    border-radius: 0.7em;
+}
+
+.tzeet-footer{
+    display: flex;
+    padding-top: 0.9em;
+    gap: 2em;
+}
+
+.tzeet-multimedia {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; 
+    width: 50%;
+}
+
+.tzeet-multimedia a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3em; 
+    height: 2em;
+    border-radius: 50%; 
+    text-decoration: none;
+}
+
+.tzeet-multimedia i {
+    font-size: 1em; 
+    color: var(--color-A); 
+}
+
+.tzeet-multimedia a:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+}
+
+.tzeet-status-and-send{
+    font-size: 1em;
+    align-content: center;
+    text-align: right;
+    width: 50%;
+}
+
+.tzeet-status-and-send i {
+    font-size: 1em; 
+    color: var(--color-A); 
+}
+
+.tzeet-status-and-send a {
+    align-items: center;
+    justify-content: center;
+    width: 3em; 
+    height: 2em;
+    border-radius: 50%; 
+    text-decoration: none;
+}
+
+.tzeet-status-and-send a:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+}
+
+#button-send-tzeet {
+    background-color: rgb(150, 150, 150); 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: not-allowed; 
+    transition: background-color 0.3s ease;
+}
+
+#button-send-tzeet.enabled {
+    background-color: var(--color-A); 
+    cursor: pointer; 
+}
+
+/*Modal para enviar tzeet*/
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding-top: 10%;
+    padding-left: 30%;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    height: auto;
+    position: relative;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--color-A);
 }
