@@ -1,0 +1,123 @@
+@import url('variables.css');
+
+/*Configurações da página geral*/
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.444);
+}
+
+#login-box{
+    color: var(--color-A);
+    background-color: white;
+    border-radius: 1em;
+    padding: 4em;
+    width: 25%;
+    height: auto;
+    justify-content: center;
+    justify-items: center;
+}
+
+/*Título de login*/
+#login-box h1{
+    font-size: 1.5em;
+    margin: 1em 0;
+}
+
+#login-box form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    width: 100%;
+    height: auto;
+}
+
+/*Inputs*/
+.input-container{
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(15, 25, 20, 0.407);
+    width: 100%;
+}
+
+#login-box input{
+    font-size: 1.2em;
+    outline: none;
+    border: none;
+    padding: 1em;
+    width: 90%;
+}
+
+#login-box input textarea{
+    padding: 5em;
+}
+/*formatando ícones*/
+.bi{
+    font-size: 1.2em;
+    margin-right: 0.5em;
+}
+
+.bi-ban{
+    display: none;
+    color: red;  
+}
+
+.bi-check-circle{
+    display: none;
+    color: green;
+}
+
+/*Links*/
+#login-box a{
+    color: var(--color-button-show-more);
+}
+
+#login-box a:hover{
+    text-decoration: underline;
+}
+
+/*Botão de login*/
+#button-login {
+    background-color: var(--color-button-disabled);
+    color: white;
+    border: none;
+    font-size: 1em;
+    border-radius: 1em;
+    transition: background-color 0.3s ease;
+    padding: 1em;
+    width: 100%;
+    margin-top: 1em;
+    cursor: not-allowed;
+}
+
+#button-login.button-enable {
+    background-color: var(--color-A) !important; 
+    cursor: pointer; 
+}
+
+
+/*Link para se cadastrar*/
+#area-signup-link{
+    font-size: 1.1em;
+    margin-top: 2em;
+}
+
+/*Área de erros do formulário*/
+.error-message {
+    display: none;
+    color: red;
+    font-size: 0.9em;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.success {
+    border: 2px solid green;
+}
+

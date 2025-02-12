@@ -1,0 +1,15 @@
+:root {
+    --color-A: rgb(15, 20, 25); 
+    --color-B: rgb(83, 100, 113);
+    --color-C: rgb(239, 243, 244);
+    --color-button-p-retzeet: rgba(0, 186, 124, 1);
+    --color-button-p-reply-and-share: rgba(29, 155, 240, 1);
+    --color-button-p-like: rgba(249, 24, 128, 1);
+    --color-post: rgb(50, 50, 50);
+    --color-post-hover: rgba(0, 0, 0, 0.03);
+    --color-search-icon: #2e2c2c;
+    --color-button-show-more: rgb(9, 148, 255);
+    --color-button-hover: rgb(57, 57, 57);
+    --color-button-disabled: rgb(74, 72, 72);
+    --color-background-hover: rgba(15, 25, 20, 0.1);
+}
