@@ -6,83 +6,111 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <title>Signup - Tzeeter</title>
     <link rel="stylesheet" href="css/signup.css">
-    <script src="js/app.js" defer></script>
+    <script src="js/signup.js" defer></script>
 </head>
 <body>
     <div id="signup-box">
         <div id="title-and-button-close">
             <h1>Criar conta</h1>
-            <a href="login.html"><i class="bi bi-x-circle"></i></a>
+            <a href="login.html"><i class="bi-x-circle"></i></a>
         </div>
-        <form id="signup-form">
+        <form id="signup-form" novalidate>
+            <!--Container para Nome-->
             <div id="container-nome" class="input-container">
                 <input type="text" id="nome" name="nome" placeholder="Nome">
+                <i id="icon-error-name" class="bi bi-ban"></i> 
+                <i id="icon-success-name" class="bi bi-check-circle"></i> 
             </div>
+
+            <!--Mensagens de erro para o campo NOME-->
+            <span class="error-message" id="nome-error-1">Por favor, insira o nome de usuário.</span>
+            <span class="error-message" id="nome-error-2">Seu nome não pode conter números ou caracteres especiais.</span>
             
             <div id="container-email" class="input-container">
                 <input type="email" id="email" name="email" placeholder="Email">
+                <i id="icon-error-email" class="bi bi-ban"></i> 
+                <i id="icon-success-email" class="bi bi-check-circle"></i> 
             </div>
+
+            <!--Mensagens de erro para o campo EMAIL-->
+            <span class="error-message" id="email-error-1">Por favor, insira um endereço de email.</span>
+            <span class="error-message" id="email-error-2">Insira um endereço de email válido.</span>
 
             <div id="container-senha" class="input-container">
                 <input type="password" id="senha" name="senha" placeholder="Senha">
+                <i id="icon-error-senha" class="bi bi-ban"></i> 
+                <i id="icon-success-senha" class="bi bi-check-circle"></i> 
             </div>
 
-            <div id="container-senha-confirm" class="input-container">
-                <input type="password" id="confirmacao_senha" name="confirmacao_senha" placeholder="Confirmação da senha">
+            <!--Mensagens de erro para o campo SENHA-->
+            <span class="error-message" id="senha-error-1">Por favor, insira uma senha.</span>
+            <span class="error-message" id="senha-error-2">A senha deve possuir entre 6 e 15 caracteres.</span>
+
+
+            <div id="container-conf-senha" class="input-container">
+                <input type="password" id="conf-senha" name="confirmacao_senha" placeholder="Confirmação da senha">
+                <i id="icon-error-conf-senha" class="bi bi-ban"></i> 
+                <i id="icon-success-conf-senha" class="bi bi-check-circle"></i> 
             </div>
+
+            <!--Mensagens de erro para o campo de CONFIRMAÇÃO DE SENHA-->
+            <span class="error-message" id="conf-senha-error-1">As senhas não correspondem.</span>
+            <span class="error-message" id="conf-senha-error-2">Por favor, confirme sua senha.</span>
+            <span class="error-message" id="conf-senha-error-3">Por favor, informe uma senha acima antes de confirmar.</span>
+            
 
             <label>Data de nascimento</label>
             <p id="p-data-nasc">
                 Isso não será exibido publicamente. Confirme sua própria idade, mesmo se esta conta for de empresa, de um animal de estimação ou outros.
             </p>
-            <div id="camps-data-nasc">
-                <select id="mes-nas" name="mes">
-                    <option>Mês</option>
-                    <option>Janeiro</option>
-                    <option>Fevereiro</option>
-                    <option>Março</option>
-                    <option>Abril</option>
-                    <option>Maio</option>
-                    <option>Junho</option>
-                    <option>Julho</option>
-                    <option>Agosto</option>
-                    <option>Setembro</option>
-                    <option>Outubro</option>
-                    <option>Novembro</option>
-                    <option>Dezembro</option>
-                </select>
-                <select id="dia-nas" name="dia">
-                    <option>Dia</option>
-                    <script>
-                        for (let i = 1; i <= 31; i++) {
-                            document.write(`<option>${i}</option>`);
-                        }
-                    </script>
-                </select>
-                <select id="ano-nas" name="ano">
-                    <option>Ano</option>
-                    <script>
-                        for (let i = new Date().getFullYear(); i >= 1900; i--) {
-                            document.write(`<option>${i}</option>`);
-                        }
-                    </script>
-                </select>
-            </div>
 
-            <p id="checkbox-confirm">
+            <div id="camps-data-nasc">
+                <select id="mes-nas" class='select-data' name="mes">
+                    <option selected disabled>Mês</option>
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <option value="3">Março</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Maio</option>
+                    <option value="6">Junho</option>
+                    <option value="7">Julho</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+
+                <select id="dia-nas" class='select-data' name="dia">
+                    <!-- Os dias serão preenchidos dinamicamente via JavaScript -->
+                </select>
+
+                <select id="ano-nas" class='select-data' name="ano">
+                    <option selected disabled>Ano</option>
+                    <!-- Os anos serão preenchidos dinamicamente via JavaScript -->
+                </select> 
+            </div>
+            <span class="error-message" id="data-mes-error">Selecione o mês de nascimento.</span>
+            <span class="error-message" id="data-dia-error">Selecione o dia de nascimento.</span>
+            <span class="error-message" id="data-ano-error">Selecione o ano de nascimento.</span>
+
+            <p id="p-checkbox-confirm">
                 <input id="checkbox" type="checkbox" id="emails" name="emails"> Receba e-mails sobre sua atividade no Tzeeter e recomendações.
             </p> 
                 
-            <p id="radio-confirm">Você concorda com nossos Termos, com a Política de Privacidade e com o Uso de Cookies?</p>
+            <p id="p-radio-confirm">Você concorda com nossos Termos, com a Política de Privacidade e com o Uso de Cookies?</p>
             <div class="radio-container">
-                <input type="radio" id="sim" name="concorda" value="sim">
-                <label for="sim">Sim</label>
-                <input type="radio" id="nao" name="concorda" value="nao" checked>
-                <label for="nao">Não</label>
+                <div class="op-radio">
+                    <input type="radio" id="sim" name="concorda" value="sim">
+                    <label for="sim">Sim</label>
+                </div>
+                <div class="op-radio">
+                    <input type="radio" id="nao" name="concorda" value="nao" checked>
+                    <label for="nao">Não</label>
+                </div>
             </div>
-
-            <button id="button-signup" type="submit">Se inscrever</button>
-    </form>
+            <button id="button-signup" type="submit" disabled>Se inscrever</button>
+        </form>
     </div>
 </body>
 </html>

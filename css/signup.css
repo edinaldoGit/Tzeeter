@@ -19,7 +19,7 @@ body{
     border-radius: 1em;
     padding: 1em;
     font-size: 1.2em;
-    width: 30%;
+    width: 35%;
     height: auto;
     justify-content: center;
     justify-items: center;
@@ -30,7 +30,9 @@ body{
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 1em 0
+    padding: 1em 0;
+    border-bottom: 2px solid rgba(15, 25, 20, 0.15);
+    margin-bottom: 1em;
 }
 
 #title-and-button-close h1{
@@ -47,8 +49,8 @@ body{
 #signup-box form{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1em;
+    align-items: right;
+    gap: 0.9em;
     width: 100%;
     height: auto;
 }
@@ -92,6 +94,10 @@ body{
     width: 100%;
 }
 
+.select-data{
+    border: 2px solid rgba(15, 25, 20, 0.407); 
+}
+
 #mes-nas{
     font-size: 1em;
     width: 50%;
@@ -110,18 +116,26 @@ body{
     padding: 0.5em;
 }
 
-#checkbox-confirm{
+#p-checkbox-confirm{
     display: grid;
     grid-template-columns: 5% 95%;
     font-size: 0.8em;
     width: 100%;
 }
 
-#radio-confirm{
+
+#p-radio-confirm{
+    align-self: flex-start;
     font-size: 0.8em;
 }
 
 .radio-container{
+    display: flex;
+    gap: 4em;
+    font-size: 0.9em;
+    justify-content: center;
+}
+.op-radio{
     display: flex;
     gap: 1em;
 }
@@ -147,4 +161,39 @@ body{
 #button-signup.button-enable {
     background-color: var(--color-A) !important; 
     cursor: pointer; 
+}
+
+#button-signup.button-disable {
+    background-color: var(--color-button-disabled) !important; 
+    cursor: not-allowed; 
+}
+
+/*Mensagens de erro*/
+.error-message{
+    display: none;
+    color: red;
+    font-size: 0.9em;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.success {
+    border: 2px solid green;
+}
+
+/*ìcones de erro dos inputs*/
+.bi{
+    display: none;
+    font-size: 1.2em;
+    margin-right: 0.5em;
+}
+
+.bi-ban{
+    color: red;  
+}
+
+.bi-check-circle{
+    color: green;
 }

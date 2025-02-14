@@ -11,6 +11,7 @@ let iconErrorSenha = document.getElementById('icon-error-senha');
 let containerEmail = document.getElementById('container-email');
 let containerSenha = document.getElementById('container-senha');
 let buttonLogin = document.getElementById('button-login');
+let isValid = true;
 
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -113,6 +114,8 @@ function validateInput(input) {
         } 
     }
 }
+
+
 
 //Faz a validação ao dar submissão no formulário 
 function verifyValidate(event) {
